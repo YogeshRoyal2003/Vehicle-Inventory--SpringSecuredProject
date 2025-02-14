@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vehicle List</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<h1>Vehicle Inventory</h1>
+
+<form th:action="@{/vehicles}" method="get">
+    <input type="text" name="keyword" th:value="${keyword}" placeholder="Search by Make or Model"/>
+    <button type="submit">Search</button>
+    <a th:href="@{/vehicles}">Clear Search</a>
+</form>
+
+<table>
+    <thead>
+    <tr>
+        <th>Make</th>
+        <th>Model</th>
+        <th>Year</th>
+        <th>Color</th>
+        <th>VIN</th>
+        <th>Price</th>
+        <th>Mileage</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="vehicle : ${vehicles}">
+        <td th:text="${vehicle.make}"></td>
+        <td th:text="${vehicle.model}"></td>
+        <td th:text="${vehicle.year}"></td>
+        <td th:text="${vehicle.color}"></td>
+        <td th:text="${vehicle.vin}"></td>
+        <td th:text="${vehicle.price}"></td>
+        <td th:text="${vehicle.mileage}"></td>
+        <td>
+            <a th:href="@{/vehicles/{id}(id=${vehicle.id})}">View</a>
+            <a th:href="@{/vehicles/edit/{id}(id=${vehicle.id})}">Edit</a>
+            <a th:href="@{/vehicles/delete/{id}(id=${vehicle.id})}">Delete</a>
+        </td>
+        <!-- In vehicle-list.html, inside the <td> for actions -->
+        <td>
+            <a th:href="@{/vehicles/{id}(id=${vehicle.id})}">View</a>
+            <a th:href="@{/vehicles/edit/{id}(id=${vehicle.id})}">Edit</a>
+            <a href="#" th:onclick="confirmDelete([[${vehicle.id}]])">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a th:href="@{/vehicles/new}">Add New Vehicle</a>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

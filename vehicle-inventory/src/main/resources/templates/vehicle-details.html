@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vehicle Details</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<h1>Vehicle Details</h1>
+<p>Make: <span th:text="${vehicle.make}"></span></p>
+<p>Model: <span th:text="${vehicle.model}"></span></p>
+<p>Year: <span th:text="${vehicle.year}"></span></p>
+<p>Color: <span th:text="${vehicle.color}"></span></p>
+<p>VIN: <span th:text="${vehicle.vin}"></span></p>
+<p>Price: <span th:text="${vehicle.price}"></span></p>
+<p>Mileage: <span th:text="${vehicle.mileage}"></span></p>
+<img th:src="${vehicle.imageUrl}" alt="Vehicle Image" width="200" th:if="${vehicle.imageUrl}"/>
+<a th:href="@{/vehicles}">Back to List</a>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

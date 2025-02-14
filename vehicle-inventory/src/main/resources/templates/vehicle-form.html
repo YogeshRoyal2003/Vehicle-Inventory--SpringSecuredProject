@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Vehicle Form</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+<h1>Vehicle Form</h1>
+<form th:action="@{/vehicles/save}" th:object="${vehicle}" method="post">
+    <label for="make">Make:</label>
+    <input type="text" id="make" th:field="*{make}" /><br />
+    <span th:if="${#fields.hasErrors('make')}" th:errors="*{make}"></span><br />
+
+    <label for="model">Model:</label>
+    <input type="text" id="model" th:field="*{model}" /><br />
+    <span th:if="${#fields.hasErrors('model')}" th:errors="*{model}"></span><br />
+
+    <label for="year">Year:</label>
+    <input type="number" id="year" th:field="*{year}" /><br />
+    <span th:if="${#fields.hasErrors('year')}" th:errors="*{year}"></span><br />
+
+    <label for="color">Color:</label>
+    <input type="text" id="color" th:field="*{color}" /><br />
+
+    <label for="vin">VIN:</label>
+    <input type="text" id="vin" th:field="*{vin}" /><br />
+    <span th:if="${#fields.hasErrors('vin')}" th:errors="*{vin}"></span><br />
+
+    <label for="price">Price:</label>
+    <input type="number" step="0.01" id="price" th:field="*{price}" /><br />
+    <span th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span><br />
+
+    <label for="mileage">Mileage:</label>
+    <input type="number" id="mileage" th:field="*{mileage}" /><br />
+    <span th:if="${#fields.hasErrors('mileage')}" th:errors="*{mileage}"></span><br />
+
+    <label for="imageUrl">Image URL:</label>
+    <input type="text" id="imageUrl" th:field="*{imageUrl}" /><br />
+
+    <input type="submit" value="Save" />
+</form>
+<!-- In vehicle-form.html, add the onsubmit attribute to the form -->
+<form th:action="@{/vehicles/save}" th:object="${vehicle}" method="post" onsubmit="return validateForm()">
+    <script th:src="@{/js/script.js}"></script>
+</body>
+</html>
