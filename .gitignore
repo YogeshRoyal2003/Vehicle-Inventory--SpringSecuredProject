@@ -1,0 +1,46 @@
+# Compiled class file
+*.class
+
+# Log file
+*.log
+*.stackdump
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://openjdk.java.net/re/jdk/8u40/hotspot/src/share/vm/hserr/hs_err_pid.log
+hs_err_pid*
+
+# Editor Folders and Files #
+.settings/
+.idea/
+*.ipr
+*.iml
+*.iws
+out/
+target/
+tmp/
+temp/
+build/
+
+# Eclipse
+.apt_generated/
+.classpath
+.factorypath
+.project
+
+# IDEA project files
+*.ipr
+*.iws
+*.iml
+
+# Local configuration file (users)
+config.properties
